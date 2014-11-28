@@ -1,10 +1,18 @@
 package com.dancas.simpleservice.dto;
 
+import com.dancas.simpleservice.persistence.GeneratedValue;
+import com.dancas.simpleservice.persistence.GenerationType;
+import com.dancas.simpleservice.persistence.Id;
+
 
 public class UserDTO {
-
+	
+	@Id
+	@GeneratedValue(generator="TEST", strategy=GenerationType.SEQUENCE)
 	private int id;
+	
 	private String name;
+	
 	private String surname;
 	
 //	public UserDTO(int id, String name, String surname) {

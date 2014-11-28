@@ -3,9 +3,13 @@ package com.dancas.simpleservice.bootable;
 import org.glassfish.grizzly.http.server.HttpServer;
 import org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpServerFactory;
 import org.glassfish.jersey.server.ResourceConfig;
+import org.h2.tools.Server;
 
 import java.io.IOException;
 import java.net.URI;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 
 /**
  * Main class.
@@ -33,6 +37,8 @@ public class Main {
      * Main method.
      * @param args
      * @throws IOException
+     * @throws SQLException 
+     * @throws ClassNotFoundException 
      */
     public static void main(String[] args) throws IOException {
         final HttpServer server = startServer();
@@ -41,5 +47,12 @@ public class Main {
         System.in.read();
         server.stop();
     }
+
+//	private static Connection getH2Connection() throws SQLException, ClassNotFoundException {
+//		
+//		 Class.forName("org.h2.Driver");
+//		 Connection conn = DriverManager.getConnection("jdbc:h2:tcp://localhost/~/test", "sa", "");
+//		 return conn;
+//	}
 }
 
